@@ -6,46 +6,49 @@ design DB of "chat-space"
 
 ## **Description**
 design **4** tables =>
-{ *users*, *groups*, *user_groups* (Intermediate table), *messages*}
+{ *users*, *groups*, *group_users* (Intermediate table), *messages*}
 
-***~Users Table~***
+***~users table~***
 
 |  id  |  name  |  email  |  password  |
 |:----:|:------:|:-------:|:----------:|
 |      |        |         |            |
 
-has_many :groups, through : :user_groups
+has_many :groups, through : :group_users
+has_many :group_users
 has_many :messages
 t.string :name, null:false
 add_index :users, [:name, :email]
 
-***~Groups Table~***
+***~groups table~***
 
 |  id  |  name  |
 |:----:|:------:|
 |      |        |
 
-has_many :users, through : :user_groups
+has_many :group_users
 has_many :messages
+has_many :users, through : :group_users
 t.string :name, null:false
 
 
 
-***~User_Groups Table~***
+***~group_users table~***
 
 |  id  |  user_id  |  group_id  |
 |:----:|:---------:|:----------:|
 |      |           |            |
 
-belongs_to :user
 belongs_to :group
+belongs_to :user
 
 
-***~Messages Table~***
+***~messages table~***
 
 |  id  |  body  |  image  |  user_id  |  group_id  |
 |:----:|:------:|:-------:|:---------:|:----------:|
 |      |        |         |           |            |
 
-belongs_to :user
 belongs_to :group
+belongs_to :user
+t.string :body, null:false
