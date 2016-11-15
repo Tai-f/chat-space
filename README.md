@@ -41,6 +41,8 @@ t.string :name, null:false
 
 belongs_to :group
 belongs_to :user
+t.references :user, foreign_key :true
+t.references :group, foreign_key :true
 
 
 ***~messages table~***
@@ -51,4 +53,6 @@ belongs_to :user
 
 belongs_to :group
 belongs_to :user
+t.references :user, foreign_key :true
+t.references :group, foreign_key :true
 t.string :body, null:false
