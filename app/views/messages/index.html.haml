@@ -1,21 +1,55 @@
-%header
-%div.contents
-  .left-content
-    .header
-      %h1 Taishiro
-    .sub-content
-      %h2 sample
-      %p this is sample
-  .right-content
-    .header
-      %h1 sample
-      %ul
-        %li<
-          member
-        %li<
-          taishiro
-
-    .main-content
-    
-    .footer
-
+%p.layout-notice
+  ログインしました。
+.chat
+  .chat-side
+    .chat-user.clearfix
+      %h5 Taishiro
+      .chat-user__actions
+        %a.chat-user__action
+          %i.fa.fa-pencil-square-o
+        %a.chat-user__action
+          %i.fa.fa-cog
+    %ul.chat-groups
+      %li.chat-group
+        %a.chat-group__link
+          %p.chat-group__name Taimusic
+          %p.chat-group__message 面白い
+  .chat-main
+    .chat-header.clearfix
+      .chat-header--left
+        %h2 Taimusic
+        %p.chat-header__users
+          Members:
+          %span.chat-header__user Taishiro
+          %span.chat-header__user 山田太郎
+          %span.chat-header__user 鈴木次郎
+          %span.chat-header__user 田中花子
+          %span.chat-header__user 加藤三郎
+          %span.chat-header__user 山口智史
+      .chat-header--right
+        .chat-header__edit-btn
+          Edit
+    .chat-body
+      %ul.chat-messages
+        %li.chat-message
+          .chat-message__header.clearfix
+            %p.chat-message__name Taishiro
+            %p.chat-message__time 2016/11/15 07:49:36
+          %p.chat-message__body ようこそ、Taimusicへ
+        %li.chat-message
+          .chat-message__header.clearfix
+            %p.chat-message__name atsumi
+            %p.chat-message__time 2016/11/18 07:49:36
+          %p.chat-message__body 面白そう
+        %li.chat-message
+          .chat-message__header.clearfix
+            %p.chat-message__name okada
+            %p.chat-message__time 2016/11/18 07:49:36
+          %p.chat-message__body いいね！
+    .chat-footer
+      %form#new_message.new_message
+        .chat-footer__body
+          %textarea#message_body
+          %label.chat-footer__file
+            %i.fa_fa-image
+        %input{ type: "submit", value:"Send"}
