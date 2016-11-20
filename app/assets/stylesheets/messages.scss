@@ -1,15 +1,7 @@
 // Place all the styles related to the messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here:
-$b-color: #38aef0;
-$m-color: #434A54;
-@mixin clearfix(){
-  &:after{
-    content: "";
-    display: block;
-    clear: both;
-  }
-}
+
 html, body {
   width: 100%;
   height: 100%;
