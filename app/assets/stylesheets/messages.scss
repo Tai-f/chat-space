@@ -32,7 +32,7 @@ html, body {
         }
         .chat-user__actions{
           float: right;
-          a.chat-user__action{
+          a{
             display: inline-block;
             margin: 15px 0 15px 3px;
             line-height: 28px;
@@ -53,7 +53,7 @@ html, body {
       }
       ul.chat-groups{
         .chat-group{
-          a.chat-group__link{
+          a{
             display: block;
             padding: 20px 20px;
             color: #fff;
@@ -90,7 +90,7 @@ html, body {
             color: #333;
             font-size: 20px;
           }
-          p.chat-header__users{
+          p{
             color: #999;
             font-size: 12px;
             line-height: 20px;
