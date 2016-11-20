@@ -16,7 +16,7 @@
           %p.chat-group__message 面白い
   .chat-main
     .chat-header.clearfix
-      .chat-header--left
+      .chat-header__left
         %h2 Taimusic
         %p.chat-header__users
           Members:
@@ -26,7 +26,7 @@
           %span.chat-header__user 田中花子
           %span.chat-header__user 加藤三郎
           %span.chat-header__user 山口智史
-      .chat-header--right
+      .chat-header__right
         .chat-header__edit-btn
           Edit
     .chat-body
@@ -51,5 +51,5 @@
         .chat-footer__body
           %textarea#message_body
           %label.chat-footer__file
-            %i.fa_fa-image
+            %i.fa.fa-image
         %input{ type: "submit", value:"Send"}
