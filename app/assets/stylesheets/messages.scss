@@ -1,0 +1,204 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here:
+
+html, body {
+  width: 100%;
+  height: 100%;
+  .layout-notice{
+    background-color: $b-color;
+    text-align: center;
+    min-width: 980px;
+  }
+  .chat{
+    min-width: 980px;
+    height: 100%;
+    .chat-side{
+      float: left;
+      background-color: #2f3e51;
+      width: 300px;
+      height: 100%;
+      .chat-user{
+        background-color: #253141;
+        padding: 20px;
+        @include clearfix();
+        h5{
+          float: left;
+          color: #fff;
+          font-size: 16px;
+          line-height: 60px;
+          font-weight: bold;
+          letter-spacing: 2px;
+        }
+        .chat-user__actions{
+          float: right;
+          a{
+            display: inline-block;
+            margin: 15px 0 15px 3px;
+            line-height: 28px;
+            color: #fff;
+            font-size: 20px;
+            i{
+              color: #fff;
+              display: inline-block;
+              font: normal normal normal 14px/1 FontAwesome;
+            }
+            i{
+              display: inline-block;
+              font: normal normal normal 14px/1 FontAwesome;
+              color: #fff;
+            }
+          }
+        }
+      }
+      ul.chat-groups{
+        .chat-group{
+          a{
+            display: block;
+            padding: 20px 20px;
+            color: #fff;
+            p.chat-group__name{
+              font-size: 15px;
+              color: #fff;
+              margin-bottom: 5px;
+            }
+            p.chat-group__message{
+              font-size: 11px;
+              color: #fff;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: hidden;
+            }
+          }
+        }
+      }
+    }
+    .chat-main{
+      float: left;
+      position: relative;
+      width: calc(100% - 300px);
+      height: 100%;
+      .chat-header{
+        border-bottom: 1px solid #eee;
+        background-color: #fff;
+        padding: 0 40px;
+        @include clearfix();
+        &__left{
+          float: left;
+          h2{
+            margin-top: 35px;
+            color: #333;
+            font-size: 20px;
+          }
+          p{
+            color: #999;
+            font-size: 12px;
+            line-height: 20px;
+            margin-top: 15px;
+          }
+        }
+        &__right{
+          float: right;
+          .chat-header__edit-btn{
+            margin: 28px 0;
+            padding: 0 20px;
+            line-height: 40px;
+            color: $b-color;
+            font-size: 14px;
+            border: 2px solid;
+          }
+        }
+      }
+      .chat-body{
+        position: relative;
+        padding: 46px 0 ;
+        background-color: #AAA;
+        height: calc(100% - 280px);
+        overflow-y: scroll;
+        ul.chat-messages{
+          position: absolute;
+          right: 40px;
+          left: 40px;
+          padding: 0;
+          list-style: none;
+          li.chat-message{
+            margin-bottom: 40px;
+            &__header{
+              line-height: 20px;
+              @include clearfix;
+              p.chat-message__name{
+                float: left;
+                margin-bottom: 10px;
+                font-size: 16px;
+                font-weight: bold;
+                color: $m-color;
+              }
+              p.chat-message__time{
+                float: left;
+                margin-left: 10px;
+                color: #999;
+                font-size: 12px;
+              }
+            }
+            p.chat-message__body{
+              color: $m-color;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      .chat-footer{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 20px 40px;
+        background-color: #ddd;
+        form#new_message.new_message{
+          .chat-footer__body{
+            float: left;
+            position: relative;
+            width: calc(100% - 135px);
+            height: 50px;
+            textarea#message_body{
+              width: 100%;
+              height: 20px;
+              line-height: 16px;
+              padding: 15px 10px;
+              border: none;
+              resize: none;
+              display: block;
+            }
+            label.chat-footer__file{
+              position: absolute;
+              top: 0;
+              right: 0;
+              display: inline-block;
+              width: 40px;
+              height: 50px;
+              line-height: 50px;
+              text-align: center;
+              cursor: pointer;
+              i{
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome;
+              }
+            }
+          }
+          input{
+            float: right;
+            width: 100px;
+            display: inline-block;
+            margin-left: 15px;
+            line-height: 50px;
+            background-color: $b-color;
+            text-align: center;
+            border: none;
+            padding: 0;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
