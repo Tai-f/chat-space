@@ -1,0 +1,14 @@
+p.notice{
+    background-color: $b-color;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+p.alert{
+    background-color: $b-color;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
