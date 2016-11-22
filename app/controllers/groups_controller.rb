@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
     redirect_to controller: :messages, action: :index
   end
 
-  protected
+  private
     def create_params
       params.permit( :name)
     end
