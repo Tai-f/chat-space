@@ -16,9 +16,19 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
 
+  def update
+    group = Group.find(params[:id])
+    group.update(update_params)
+    redirect_to controller: :messages, action: :index
+  end
+
 
   private
     def create_params
+      params.require(:group).permit(:name)
+    end
+
+    def update_params
       params.require(:group).permit(:name)
     end
 end
