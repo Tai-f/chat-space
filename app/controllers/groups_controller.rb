@@ -13,13 +13,15 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(params[:id])
+    set_group
   end
 
   def update
-    group = Group.find(params[:id])
-    group.update(group_params)
-    redirect_to controller: :messages, action: :index
+    set_group
+    if @group.update(group_params)
+      redirect_to controller: :messages, action: :index
+    else
+      render action: :edit
   end
 
 
