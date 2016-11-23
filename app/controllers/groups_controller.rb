@@ -4,8 +4,12 @@ class GroupsController < ApplicationController
   end
 
   def create
-    Group.create(create_params)
-    redirect_to controller: :messages, action: :index
+    group = Group.create(create_params)
+    if group.present?
+      redirect_to controller: :messages, action: :index
+    else
+      render action: :new
+    end
   end
 
   private
