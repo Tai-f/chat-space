@@ -22,7 +22,9 @@ class GroupsController < ApplicationController
       move_to_index
     else
       render action: :edit
+    end
   end
+
 
 
   private
