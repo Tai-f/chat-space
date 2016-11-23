@@ -28,4 +28,8 @@ class GroupsController < ApplicationController
       params.require(:group).permit(:name)
     end
 
+    def set_group
+      @group = Group.find(params[:id])
+    end
+
 end
