@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to controller: :messages, action: :index
+      move_to_index
     else
       render action: :new
     end
@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
   def update
     set_group
     if @group.update(group_params)
-      redirect_to controller: :messages, action: :index
+      move_to_index
     else
       render action: :edit
   end
@@ -32,6 +32,10 @@ class GroupsController < ApplicationController
 
     def set_group
       @group = Group.find(params[:id])
+    end
+
+    def move_to_index
+      redirect_to controller: :messages, action: :index
     end
 
 end
