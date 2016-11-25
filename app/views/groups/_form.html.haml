@@ -1,0 +1,29 @@
+= form_for(@group) do |f|
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label :name, "グループ名", class: 'chat-group-form__label'
+    .chat-group-form__field--right
+      = f.text_field :name, placeholder: "グループ名を入力してください", class: 'chat-group-form__input'
+  / --以下は今後使用する可能性があるため、消さずにコメントアウトする！--
+  / .chat-group-form__field.clearfix
+  /   .chat-group-form__field--left
+  /     / = f.label :チャットメンバー追加, class: 'chat-group-form__label'
+  /   .chat-group-form__field--right
+  /     .chat-group-form__search.clearfix
+  /       / = f.text_field :name, placeholder: "追加したいユーザー名を入力してください", id: 'user-search-field', class: 'chat-group-form__input'
+  /     #user-search-result
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label :name, "チャットメンバー",  class: 'chat-group-form__label'
+    .chat-group-form__field--right
+      = f.label :users
+      = collection_check_boxes(:group, :user_ids, User.all, :id, :name) do |t|
+        =t.label{t.check_box + t.text}
+      #chat-group-users
+      #chat-group-user-22.chat-group-user.clearfix
+        = f.hidden_field :'chat_group[user_ids]', value: '22'
+        %p.chat-group-user__name Taishiro.F
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+    .chat-group-form__field--right
+      = f.submit :Save, name:"commit", class: 'chat-group-form__action-btn', disable_with: 'Save'
