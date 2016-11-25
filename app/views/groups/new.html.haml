@@ -20,10 +20,10 @@
         = f.label :users
         = collection_check_boxes(:group, :user_ids, User.all, :id, :name) do|t|
           =t.label{t.check_box + t.text}
-        #chat-group-users
-          #chat-group-user-22.chat-group-user.clearfix
-            = f.hidden_field :'chat_group[user_ids]', value: '22'
-            %p.chat-group-user__name seo_kyohei
+        / #chat-group-users
+        /   #chat-group-user-22.chat-group-user.clearfix
+        /     = f.hidden_field :'chat_group[user_ids]', value: '22'
+        /     %p.chat-group-user__name seo_kyohei
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
