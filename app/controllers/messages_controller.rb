@@ -7,5 +7,9 @@ class MessagesController < ApplicationController
     Message.create(message_params)
   end
 
-  
+  private
+  def message_params
+    params.require(:message).permit(:body, :image).merge(group_id: params[:group_id], user_id: current_user.id)
+  end
+
 end
