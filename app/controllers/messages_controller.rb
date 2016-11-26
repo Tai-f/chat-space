@@ -4,5 +4,8 @@ class MessagesController < ApplicationController
   end
 
   def create
+    Message.create(message_params)
   end
+
+  
 end
