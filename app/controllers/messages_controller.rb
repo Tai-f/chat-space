@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to action: :index
     else
+    @group = Group.find(params[:group_id])
       render action: :index
     end
   end
