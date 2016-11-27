@@ -11,6 +11,7 @@ class MessagesController < ApplicationController
       redirect_to action: :index
     else
       set_group
+      flash.now[:alert] = "メッセージが書かれていなかったため、保存できませんでした。"
       render action: :index
     end
   end
