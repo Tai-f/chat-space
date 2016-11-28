@@ -8,6 +8,9 @@ describe Message do
     end
 
     it "is invalid without a body" do
+      message = build(:message, body: "")
+      message.valid?
+      expect(message.errors[:body]).to include("を入力してください")
     end
 
   end
