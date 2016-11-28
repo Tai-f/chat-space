@@ -6,5 +6,9 @@ describe Message do
       message = create(:message)
       expect(message).to be_valid
     end
+
+    it "is invalid without a body" do
+    end
+
   end
 end
