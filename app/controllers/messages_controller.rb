@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_group, only: [:index, :create]
   def index
-    set_group
     @message = Message.new
   end
 
@@ -10,7 +10,6 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to action: :index
     else
-      set_group
       flash.now[:alert] = "メッセージが書かれていなかったため、保存できませんでした。"
       render action: :index
     end
