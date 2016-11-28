@@ -52,3 +52,7 @@ gem "font-awesome-rails"
 gem 'devise'
 gem 'pry-rails'
 gem'rails-i18n'
+
+group :test do
+  gem 'faker'
+end
