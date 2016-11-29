@@ -6,7 +6,9 @@ describe MessagesController do
       get :index, use_route: :messages
       expect(response).to render_template :index
     end
+  end
 
+  describe 'POST #create' do
   end
 end
 
