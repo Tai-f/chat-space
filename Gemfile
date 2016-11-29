@@ -51,7 +51,8 @@ gem "haml-rails", "~> 0.9"
 gem "font-awesome-rails"
 gem 'devise'
 gem 'pry-rails'
-gem'rails-i18n'
+gem 'rails-i18n'
+gem 'paperclip'
 
 group :test do
   gem 'faker'
