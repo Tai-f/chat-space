@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe MessagesController do
   describe 'GET #index' do
-    it "assingns the requested contact to @message" do
-      tweet = 
+    it "renders the :index template" do
     end
+
   end
 end
 
