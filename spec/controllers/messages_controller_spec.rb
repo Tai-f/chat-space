@@ -25,7 +25,10 @@ describe MessagesController do
       }.to change(Message, :count).by(1)
     end
 
-
+    it "redirects to messages#index" do
+      post :create, group_id: 5, message: attributes_for(:message)
+      expect(response).to redirect_to group_messages_path
+    end
   end
 end
 
