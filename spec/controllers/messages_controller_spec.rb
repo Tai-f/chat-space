@@ -1,14 +1,13 @@
 require 'rails_helper'
 
 describe MessagesController do
+  let(:user){create(:user)}
   before do
-    @user = create(:user)
-
-    sign_in @user
+    sign_in user
   end
 
   after do
-    sign_out @user
+    sign_out user
   end
 
   describe 'GET #index' do
