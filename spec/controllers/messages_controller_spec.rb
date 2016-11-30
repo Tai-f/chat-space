@@ -8,7 +8,12 @@ describe MessagesController do
     end
   end
 
+
+
   describe 'POST #create' do
+    it "saves the new contact in the database" do
+    end
+
   end
 end
 
