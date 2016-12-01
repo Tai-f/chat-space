@@ -1,14 +1,17 @@
 .chat
   .chat-side
     .chat-user.clearfix
-      %h5 Taishiro
+      %h5
+        =current_user.name
       .chat-user__actions
-        %a.chat-user__action
+        = link_to new_group_path, class: 'chat-user__action' do
           %i.fa.fa-pencil-square-o
-        %a.chat-user__action
+        = link_to edit_user_registration_path, class: 'chat-user__action' do
           %i.fa.fa-cog
     %ul.chat-groups
       %li.chat-group
-        %a.chat-group__link
-          %p.chat-group__name Taimusic
-          %p.chat-group__message 面白い
+        - current_user.groups.each do |group|
+          = link_to group_messages_path(group_id: group.id), class: 'chat-group__link' do
+            %p.chat-group__name
+            =group.name
+            %p.chat-group__message 面白い
