@@ -29,6 +29,13 @@ $(function(){
       },
       dataType: "json"
     })
-    
+    .done(function(data){
+      appendList(data);
+      $("#submit").prop('disabled', false);
+      textField.val("");
+    })
+    .fail(function(){
+      alert("通信失敗しました")
+    });
   });
 });
