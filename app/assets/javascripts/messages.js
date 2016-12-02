@@ -15,4 +15,9 @@ $(function(){
     messageUl.append(appendList)
   }
 
+  $("#new_message").submit(function(e){
+    e.preventDefault();
+    var input = textField.val();
+
+  });
 });
