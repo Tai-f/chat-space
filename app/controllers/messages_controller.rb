@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_group, only: [:index, :create]
   def index
-    @messages = @group.messages.order("id DESC")
+    set_index
     @message = Message.new
   end
 
@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
         format.json {render json: @message}
       end
     else
-      @messages = @group.messages.order("id DESC")
+      set_index
       flash.now[:alert] = "メッセージが書かれていなかったため、保存できませんでした。"
       render :index
     end
@@ -29,5 +29,8 @@ class MessagesController < ApplicationController
     @group = Group.find(params[:group_id])
   end
 
+  def set_index
+    @messages = @group.messages.order("id DESC")
+  end
 
 end
