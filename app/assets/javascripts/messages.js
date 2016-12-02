@@ -19,5 +19,16 @@ $(function(){
     e.preventDefault();
     var input = textField.val();
 
+    $.ajax({
+      type: 'POST',
+      url: './messages',
+      data: {
+        message: {
+          body: input, image: ""
+        }
+      },
+      dataType: "json"
+    })
+    
   });
 });
