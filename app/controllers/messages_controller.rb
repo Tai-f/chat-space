@@ -2,16 +2,21 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_group, only: [:index, :create]
   def index
+    @messages = @group.messages.order("id DESC")
     @message = Message.new
   end
 
   def create
     @message = Message.new(message_params)
     if @message.save
-      redirect_to action: :index
+      respond_to do |format|
+        format.html {redirect_to group_messages_path, notice: "メッセージを保存しました"}
+        format.json {render json: @message}
+      end
     else
+      @messages = @group.messages.order("id DESC")
       flash.now[:alert] = "メッセージが書かれていなかったため、保存できませんでした。"
-      render action: :index
+      render :index
     end
   end
 
