@@ -12,7 +12,7 @@ $(function(){
     var appendDate = dateElement.append(data.created_at);
     var appendMessage = messageElement.append(data.body);
     var appendList = listElement.append(appendName).append(appendDate).append(appendMessage);
-    messageUl.append(appendList)
+    messageUl.prepend(appendList)
   }
 
   $("#new_message").submit(function(e){
