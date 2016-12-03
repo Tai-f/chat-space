@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @group = Group.new
   end
@@ -37,7 +39,7 @@ class GroupsController < ApplicationController
     end
 
     def move_to_index
-      redirect_to controller: :messages, action: :index
+      redirect_to root_path
     end
 
 end

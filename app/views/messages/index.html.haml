@@ -1,53 +1,47 @@
 .chat
   .chat-side
     .chat-user.clearfix
-      %h5 Taishiro
+      %h5
+        =current_user.name
       .chat-user__actions
-        %a.chat-user__action
+        = link_to new_group_path, class: 'chat-user__action' do
           %i.fa.fa-pencil-square-o
-        %a.chat-user__action
+        = link_to edit_user_registration_path, class: 'chat-user__action' do
           %i.fa.fa-cog
     %ul.chat-groups
       %li.chat-group
-        %a.chat-group__link
-          %p.chat-group__name Taimusic
-          %p.chat-group__message 面白い
+        - current_user.groups.each do |group|
+          = link_to group_messages_path, class: 'chat-group__link' do
+            %p.chat-group__name
+            =group.name
+            %p.chat-group__message
+              面白い
   .chat-main
     .chat-header.clearfix
       .chat-header__left
-        %h2 Taimusic
+        %h2
+        =@group.name
         %p.chat-header__users
           Members:
-          %span.chat-header__user Taishiro
-          %span.chat-header__user 山田太郎
-          %span.chat-header__user 鈴木次郎
-          %span.chat-header__user 田中花子
-          %span.chat-header__user 加藤三郎
-          %span.chat-header__user 山口智史
+          %span.chat-header__user
+          = @group.name
       .chat-header__right
-        .chat-header__edit-btn
-          Edit
+        = link_to "Edit", edit_group_path(id: current_user.id), class: "chat-header__edit-btn"
     .chat-body
       %ul.chat-messages
-        %li.chat-message
-          .chat-message__header.clearfix
-            %p.chat-message__name Taishiro
-            %p.chat-message__time 2016/11/15 07:49:36
-          %p.chat-message__body ようこそ、Taimusicへ
-        %li.chat-message
-          .chat-message__header.clearfix
-            %p.chat-message__name atsumi
-            %p.chat-message__time 2016/11/18 07:49:36
-          %p.chat-message__body 面白そう
-        %li.chat-message
-          .chat-message__header.clearfix
-            %p.chat-message__name okada
-            %p.chat-message__time 2016/11/18 07:49:36
-          %p.chat-message__body いいね！
+        - @messages.each do |message|
+          %li.chat-message
+            .chat-message__header.clearfix
+              %p.chat-message__name
+                =message.user.name
+              %p.chat-message__time
+                =message.created_at.strftime("%Y-%m-%d %H:%M:%S")
+            %p.chat-message__body
+              =message.body
     .chat-footer
       = form_for [@group, @message] do |f|
         .chat-footer__body
           = f.text_area :body
           = f.label :image, class: 'chat-footer__file' do
             %i.fa.fa-image
-        = f.submit "Send"
+        = f.submit "Send", id: 'submit'
