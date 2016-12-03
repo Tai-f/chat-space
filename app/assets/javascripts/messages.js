@@ -8,7 +8,7 @@ $(function(){
     var messageElement = $('<p class= "chat-message__body">');
     var listElement = $('<li class= "chat-message">');
     var headerElement = $('<div class = "chat-message__header clearfix">');
-    var name = $('<h5>').text();
+    var name = $('h5').text();
     var appendName = $('<p class= "chat-message__name">').append(name);
     var appendDate = dateElement.append(data.created_at);
     var appendMessage = messageElement.append(data.body);
@@ -33,6 +33,7 @@ $(function(){
     })
     .done(function(data){
       appendList(data);
+      console.log(name);
       $("#submit").prop('disabled', false);
       textField.val("");
     })
