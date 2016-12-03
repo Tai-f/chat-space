@@ -33,7 +33,6 @@ $(function(){
     })
     .done(function(data){
       appendList(data);
-      console.log(name);
       $("#submit").prop('disabled', false);
       textField.val("");
     })
