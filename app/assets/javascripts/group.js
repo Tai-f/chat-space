@@ -38,7 +38,7 @@ $(function(){
           if(userName.match(reg)){
             appendMembers(a_data);
 
-             $(".chat-group-user__btn.chat-group-user__btn--add").on("click", function(){
+            $(".chat-group-user__btn.chat-group-user__btn--add").on("click", function(){
               var userId = $(this).attr("user_id");
               var userName = $(this).attr("user_name");
               var appendUserName = $('<p class="chat-group-add-user__name">').append(userName).attr("id", userId);
@@ -49,7 +49,6 @@ $(function(){
                 $(this).parent().remove();
               });
             });
-
           }
         });
       }
@@ -82,14 +81,13 @@ $(function(){
       },
       dataType: "json"
     })
+
     .done(function(){
     })
+
     .fail(function(){
       alert("通信失敗しました")
     });
-
-
-
-
+  });
 
 });
