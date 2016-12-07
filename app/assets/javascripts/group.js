@@ -23,6 +23,14 @@ $(function(){
     var word = newInputs.join("|");
     var reg = RegExp(word);
 
+    $.ajax({
+      type: "GET",
+      url: "/users.json",
+      data:{},
+      dataType: "json"
+    })
+
+  
   });
 
 
