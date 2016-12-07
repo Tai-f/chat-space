@@ -8,9 +8,14 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      move_to_index
+      respond_to do |format|
+        format.html {redirect_to group_messages_path(group_id: @group.id), notice: "グループを保存しました"}
+        format.json {render json: @group}
+      end
+
     else
-      render action: :new
+      flash.now[:alert] = "保存できませんでした"
+      render new_group_path
     end
   end
 
