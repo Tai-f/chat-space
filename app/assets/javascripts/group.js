@@ -72,6 +72,23 @@ $(function(){
     var saveIds = {value: ids};
     $(".chat-group-form_hidden").attr(saveIds);
 
+    $.ajax({
+      type: 'POST',
+      url: '/groups',
+      data: {
+        group: {
+          name: input, user_ids: ids
+        }
+      },
+      dataType: "json"
+    })
+    .done(function(){
+    })
+    .fail(function(){
+      alert("通信失敗しました")
+    });
+
+
 
 
 
