@@ -56,7 +56,7 @@ $(function(){
     })
 
     .fail(function(){
-      alert("通信されていません");
+      alert("エラーが発生しました");
     });
 
   });
@@ -86,7 +86,7 @@ $(function(){
     })
 
     .fail(function(){
-      alert("通信失敗しました")
+      alert("エラーが発生しました")
     });
   });
 
