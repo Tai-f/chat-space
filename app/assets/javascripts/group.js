@@ -30,7 +30,19 @@ $(function(){
       dataType: "json"
     })
 
-  
+    .done(function(data){
+      if(word != preWord && input.length !== 0){
+        members.children().remove();
+        $.each(data, function(i, a_data){
+          var userName = a_data.name
+          if(userName.match(reg)){
+            appendMembers(a_data);
+          }
+        });
+      }
+    preWord = word;
+    })
+
   });
 
 
