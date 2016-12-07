@@ -60,8 +60,18 @@ $(function(){
       alert("通信されていません");
     });
 
-
   });
+
+  $("#new_group").on("submit", function(){
+    var ids =[]
+    var input = $(".chat-group-form__input").val();
+    var find_ids = $(".chat-group-user").children(".chat-group-add-user__name");
+    $.each(find_ids, function(i, find_id){
+      ids.push(this.id);
+    });
+    var saveIds = {value: ids};
+    $(".chat-group-form_hidden").attr(saveIds);
+
 
 
 
