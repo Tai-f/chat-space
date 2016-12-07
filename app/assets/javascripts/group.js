@@ -56,6 +56,11 @@ $(function(){
     preWord = word;
     })
 
+    .fail(function(){
+      alert("通信されていません");
+    });
+
+
   });
 
 
