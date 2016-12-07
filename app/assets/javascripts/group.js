@@ -22,6 +22,7 @@ $(function(){
     var newInputs = inputs.map(editElement);
     var word = newInputs.join("|");
     var reg = RegExp(word);
+
   });
 
 
