@@ -54,6 +54,9 @@ gem 'devise'
 gem 'pry-rails'
 gem 'rails-i18n'
 gem 'paperclip'
+gem 'carrierwave'
+gem 'fog'
+gem 'rmagick'
 
 group :test do
   gem 'rails-controller-testing'
