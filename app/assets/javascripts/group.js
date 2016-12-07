@@ -37,6 +37,19 @@ $(function(){
           var userName = a_data.name
           if(userName.match(reg)){
             appendMembers(a_data);
+
+             $(".chat-group-user__btn.chat-group-user__btn--add").on("click", function(){
+              var userId = $(this).attr("user_id");
+              var userName = $(this).attr("user_name");
+              var appendUserName = $('<p class="chat-group-add-user__name">').append(userName).attr("id", userId);
+              var removeBtn = $('<a class ="chat-group-user__btn chat-group-user__btn--remove">').append("削除");
+              var showUser = $('<div class="chat-group-user clearFix">').append(appendUserName).append(removeBtn);
+              $("#chat-group-users").append(showUser);
+              $(".chat-group-user__btn.chat-group-user__btn--remove").click(function(){
+                $(this).parent().remove();
+              });
+            });
+
           }
         });
       }
