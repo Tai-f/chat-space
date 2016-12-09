@@ -38,10 +38,14 @@
                 =message.created_at.strftime("%Y-%m-%d %H:%M:%S")
             %p.chat-message__body
               =message.body
+            - if message.image?
+              = image_tag message.image.url, class: ".chat-message__image"
     .chat-footer
       = form_for [@group, @message] do |f|
         .chat-footer__body
           = f.text_area :body
           = f.label :image, class: 'chat-footer__file' do
             %i.fa.fa-image
+          = f.file_field :image, style: "display: none;"
+          = f.hidden_field :image_cache
         = f.submit "Send", id: 'submit'
