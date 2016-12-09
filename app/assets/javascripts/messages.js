@@ -17,11 +17,6 @@ $(function(){
 
     $("#new_message").submit(function(){
       var formData = new FormData($(this)[0]);
-      console.log(formData);
-      // var input = textField.val();
-      // var inputFile = imageField.prop("files")[0];
-      // formData.append(textField.attr('name'), input);
-      // formData.append(imageField.attr('name'),inputFile);
       $.ajax({
         type: 'POST',
         url: './messages',
