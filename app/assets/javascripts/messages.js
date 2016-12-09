@@ -5,17 +5,30 @@ $(function(){
   var imageField = $("#message_image");
 
   function appendList(data){
+
     var name = $('h5').text();
-    var appendName = $('<p class= "chat-message__name">').append(name);
-    var appendDate = $('<p class = "chat-message__time">').append(data.created_at);
-    var appendMessage = $('<p class= "chat-message__body">').append(data.body);
-    var appendImage = $('<img class="chat-message__image">').append(data.image);
-    var appendHeader = $('<div class = "chat-message__header clearfix">').append(appendName).append(appendDate);
-    var appendList = $('<li class= "chat-message">').append(appendHeader).append(appendMessage).append(appendImage);
-    messageUl.prepend(appendList);
+    var addList = '<li class = "chat-message">' +
+                    '<div class = "chat-message__header  clearfix">' +
+                      '<p class= "chat-message__name">' +
+                        name +
+                      '</p>' +
+                      '<p class = "chat-message__time">'+
+                        data.created_at +
+                      '</p>' +
+                    '</div>' +
+                    '<p class= "chat-message__body">' +
+                      data.body +
+                    '</p>' +
+                    '<img class="chat-message__image" src="'+ data.image.url +'">' +
+                    '</img>' +
+                  '</li>'
+    console.log(addList);
+    messageUl.prepend(addList);
+
   }
 
-    $("#new_message").submit(function(){
+    $("#new_message").submit(function(e){
+      e.preventDefault();
       var formData = new FormData($(this)[0]);
       $.ajax({
         type: 'POST',
@@ -26,6 +39,7 @@ $(function(){
         dataType: "json"
       })
       .done(function(data){
+        console.log("保存されています");
         appendList(data);
         $("#submit").prop('disabled', false);
         textField.val("");
