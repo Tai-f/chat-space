@@ -144,8 +144,10 @@ html, body {
               font-size: 14px;
             }
             .chat-message__image{
-              width:  35%;
-              height: 35%;
+              width: auto;
+              height: auto;
+              max-width:  200px;
+              max-height: 200px;
             }
           }
         }
