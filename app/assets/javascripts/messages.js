@@ -22,7 +22,6 @@ $(function(){
                     '<img class="chat-message__image" src="'+ data.image.url +'">' +
                     '</img>' +
                   '</li>'
-    console.log(addList);
     messageUl.prepend(addList);
 
   }
@@ -39,7 +38,6 @@ $(function(){
         dataType: "json"
       })
       .done(function(data){
-        console.log("保存されています");
         appendList(data);
         $("#submit").prop('disabled', false);
         textField.val("");
