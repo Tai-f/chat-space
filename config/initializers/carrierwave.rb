@@ -7,4 +7,16 @@ CarrierWave.configure do |config|
     region: 'ap-northeast-1'
   }
 
+  case Rails.env
+    when 'production'
+      config.fog_directory = 's3tai'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/s3tai-bucket'
+
+    when 'development'
+      config.fog_directory = 's3tai-bucket'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/s3tai-bucket'
+
+    when 'test'
+      config.storage = :file
+  end
 end
