@@ -1,5 +1,7 @@
 $(function(){
 
+  var timer = 300000;
+
   var textField = $("#message_body");
   var messageUl = $(".chat-messages");
   var imageField = $("#message_image");
@@ -26,24 +28,31 @@ $(function(){
 
   }
 
-    $("#new_message").submit(function(e){
-      e.preventDefault();
-      var formData = new FormData($(this)[0]);
-      $.ajax({
-        type: 'POST',
-        url: './messages',
-        data: formData,
-        processData: false,
-        contentType: false,
-        dataType: "json"
-      })
-      .done(function(data){
-        appendList(data);
-        $("#submit").prop('disabled', false);
-        textField.val("");
-      })
-      .fail(function(){
-        alert("通信失敗しました")
-      });
+  function reloadTimer(){
+    window.location.reload();
+  }
+
+  $("#new_message").submit(function(e){
+    e.preventDefault();
+    var formData = new FormData($(this)[0]);
+    $.ajax({
+      type: 'POST',
+      url: './messages',
+      data: formData,
+      processData: false,
+      contentType: false,
+      dataType: "json"
+    })
+
+    .done(function(data){
+      appendList(data);
+      $("#submit").prop('disabled', false);
+      textField.val("");
+    })
+
+    .fail(function(){
+      alert("通信失敗しました")
     });
+
+  });
 });
