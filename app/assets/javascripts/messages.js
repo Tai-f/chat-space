@@ -1,6 +1,6 @@
 $(function(){
 
-  var timer = 300000;
+  var timer = 10000;
 
   var textField = $("#message_body");
   var messageUl = $(".chat-messages");
