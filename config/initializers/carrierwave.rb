@@ -9,7 +9,7 @@ CarrierWave.configure do |config|
 
   case Rails.env
     when 'production'
-      config.fog_directory = 's3tai'
+      config.fog_directory = 's3tai-bucket'
       config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/s3tai-bucket'
 
     when 'development'
