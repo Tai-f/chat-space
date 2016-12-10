@@ -58,6 +58,8 @@ gem 'paperclip'
 gem 'carrierwave'
 gem 'fog'
 gem 'rmagick'
+gem 'dotenv-rails'
+gem 'config'
 
 group :test do
   gem 'rails-controller-testing'
