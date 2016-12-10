@@ -32,6 +32,8 @@ $(function(){
     window.location.reload();
   }
 
+  setInterval(reloadTimer, timer);
+
   $("#new_message").submit(function(e){
     e.preventDefault();
     var formData = new FormData($(this)[0]);
