@@ -1,8 +1,33 @@
 $(function(){
 
+  var timer = 10000;
+
   var textField = $("#message_body");
   var messageUl = $(".chat-messages");
   var imageField = $("#message_image");
+
+  function getList(){
+
+    var currentLength = $(".chat-message").length;
+
+    $.ajax({
+      type: "GET",
+      url: "./messages.json",
+      dataType: "json"
+    })
+
+    .done(function(data){
+      var dataLength = data.length;
+      var newLength =(dataLength - currentLength);
+      for (var i = 0; i < newLength; i++){
+        appendList(data[i]);
+      }
+    })
+
+    .fail(function(){
+      console.log("取得できません");
+    });
+  }
 
   function appendList(data){
 
@@ -26,24 +51,29 @@ $(function(){
 
   }
 
-    $("#new_message").submit(function(e){
-      e.preventDefault();
-      var formData = new FormData($(this)[0]);
-      $.ajax({
-        type: 'POST',
-        url: './messages',
-        data: formData,
-        processData: false,
-        contentType: false,
-        dataType: "json"
-      })
-      .done(function(data){
-        appendList(data);
-        $("#submit").prop('disabled', false);
-        textField.val("");
-      })
-      .fail(function(){
-        alert("通信失敗しました")
-      });
+  setInterval(getList, timer);
+
+  $("#new_message").submit(function(e){
+    e.preventDefault();
+    var formData = new FormData($(this)[0]);
+    $.ajax({
+      type: 'POST',
+      url: './messages',
+      data: formData,
+      processData: false,
+      contentType: false,
+      dataType: "json"
+    })
+
+    .done(function(data){
+      appendList(data);
+      $("#submit").prop('disabled', false);
+      textField.val("");
+    })
+
+    .fail(function(){
+      alert("通信失敗しました")
     });
+
+  });
 });
