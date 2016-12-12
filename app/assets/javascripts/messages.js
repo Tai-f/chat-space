@@ -54,7 +54,7 @@ $(function(){
 
   }
 
-
+  setInterval(getList, timer);
 
   $("#new_message").submit(function(e){
     e.preventDefault();
