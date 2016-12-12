@@ -3,6 +3,10 @@ class MessagesController < ApplicationController
   before_action :set_group, only: [:index, :create]
   def index
     set_messages
+    respond_to do |format|
+      format.html
+      format.json {render json: @messages}
+    end
     @message = Message.new
   end
 
