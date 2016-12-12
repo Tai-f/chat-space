@@ -13,9 +13,6 @@ $(function(){
     $.ajax({
       type: "GET",
       url: "./messages.json",
-      data: {
-        messages:{}
-      },
       dataType: "json"
     })
 
