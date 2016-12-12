@@ -6,6 +6,32 @@ $(function(){
   var messageUl = $(".chat-messages");
   var imageField = $("#message_image");
 
+  function getList(){
+
+    var currentLength = $(".chat-message").length;
+
+    $.ajax({
+      type: "GET",
+      url: "./messages.json",
+      data: {
+        messages:{}
+      },
+      dataType: "json"
+    })
+
+    .done(function(data){
+      var dataLength = data.length;
+      var newLength =(dataLength - currentLength);
+      for (var i = 0; i < newLength; i++){
+        appendList(data[i]);
+      }
+    })
+
+    .fail(function(){
+      console.log("取得できません");
+    });
+  }
+
   function appendList(data){
 
     var name = $('h5').text();
@@ -28,11 +54,7 @@ $(function(){
 
   }
 
-  function reloadTimer(){
-    window.location.reload();
-  }
 
-  setInterval(reloadTimer, timer);
 
   $("#new_message").submit(function(e){
     e.preventDefault();
