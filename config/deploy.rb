@@ -33,7 +33,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
-namespace :depoly do
+namespace :deploy do
   desc 'Restart application'
   task :restart do
     invoke 'unicorn:restart'
