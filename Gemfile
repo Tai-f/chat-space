@@ -39,6 +39,10 @@ group :development, :test do
   gem 'factory_girl_rails', "~> 4.4.1"
   gem 'faker'
   gem 'remotipart'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -60,7 +64,12 @@ gem 'fog'
 gem 'rmagick'
 gem 'dotenv-rails'
 gem 'config'
+gem 'rake', '< 11.0'
 
 group :test do
   gem 'rails-controller-testing'
+end
+
+group :production, :staging do
+  gem 'unicorn'
 end
